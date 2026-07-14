@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ระบบรับสมัครแข่งขัน BK Triple Game v3.0.0</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Thai:wght@300;400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="logo">BK Triple Game</div>
+        <div class="nav-links">
+            <button onclick="showPage('home-page')">หน้าแรก</button>
+            <button onclick="showPage('register-page')">สมัครแข่งขัน</button>
+            <button onclick="showPage('check-page')">ตรวจสอบรายชื่อ</button>
+        </div>
+    </nav>
+
+    <main class="container">
+        
+        <section id="home-page" class="page-section active">
+            <div class="hero-box">
+                <h1>ยินดีต้อนรับสู่ระบบรับสมัคร<br>BK Triple Game</h1>
+                <p>ระบบจัดการคำนวณและสมัครแข่งขันคิดเลขเร็ว, A-Math และซูโดกุ ทันสมัย แม่นยำ</p>
+                <div class="action-buttons">
+                    <button class="btn-primary" onclick="showPage('register-page')">เข้าสู่หน้าสมัคร</button>
+                    <button class="btn-secondary" onclick="showPage('check-page')">ตรวจสอบรายชื่อผู้สมัคร</button>
+                </div>
+            </div>
+        </section>
+
+        <section id="register-page" class="page-section">
+            <h2 class="section-title">ฟอร์มสมัครเข้าร่วมแข่งขัน</h2>
+            <form id="reg-form" onsubmit="handleFormSubmit(event)">
+                
+                <div class="form-section">
+                    <h3>ส่วนที่ 1: ข้อมูลทั่วไป</h3>
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label>ชื่อโรงเรียน/สถาบัน <span class="required">*</span></label>
+                            <input type="text" id="schoolName" required placeholder="กรอกชื่อโรงเรียน">
+                        </div>
+                        <div class="form-group">
+                            <label>จังหวัด <span class="required">*</span></label>
+                            <select id="province" required>
+                                <option value="">-- เลือกจังหวัด --</option>
+                                <option value="กรุงเทพมหานคร">กรุงเทพมหานคร</option>
+                                <option value="กระบี่">กระบี่</option>
+                                <option value="กาญจนบุรี">กาญจนบุรี</option>
+                                <option value="กาฬสินธุ์">กาฬสินธุ์</option>
+                                <option value="กำแพงเพชร">กำแพงเพชร</option>
+                                <option value="ขอนแก่น">ขอนแก่น</option>
+                                <option value="จันทบุรี">จันทบุรี</option>
+                                <option value="ฉะเชิงเทรา">ฉะเชิงเทรา</option>
+                                <option value="ชลบุรี">ชลบุรี</option>
+                                <option value="ชัยนาท">ชัยนาท</option>
+                                <option value="ชัยภูมิ">ชัยภูมิ</option>
+                                <option value="ชุมพร">ชุมพร</option>
+                                <option value="เชียงราย">เชียงราย</option>
+                                <option value="เชียงใหม่">เชียงใหม่</option>
+                                <option value="ตรัง">ตรัง</option>
+                                <option value="ตราด">ตราด</option>
+                                <option value="ตาก">ตาก</option>
+                                <option value="นครนายก">นครนายก</option>
+                                <option value="นครปฐม">นครปฐม</option>
+                                <option value="นครพนม">นครพนม</option>
+                                <option value="นครราชสีมา">นครราชสีมา</option>
+                                <option value="นครศรีธรรมราช">นครศรีธรรมราช</option>
+                                <option value="นครสวรรค์">นครสวรรค์</option>
+                                <option value="นนทบุรี">นนทบุรี</option>
+                                <option value="นราธิวาส">นราธิวาส</option>
+                                <option value="น่าน">น่าน</option>
+                                <option value="บึงกาฬ">บึงกาฬ</option>
+                                <option value="บุรีรัมย์">บุรีรัมย์</option>
+                                <option value="ปทุมธานี">ปทุมธานี</option>
+                                <option value="ประจวบคีรีขันธ์">ประจวบคีรีขันธ์</option>
+                                <option value="ปราจีนบุรี">ปราจีนบุรี</option>
+                                <option value="ปัตตานี">ปัตตานี</option>
+                                <option value="พระนครศรีอยุธยา">พระนครศรีอยุธยา</option>
+                                <option value="พะเยา">พะเยา</option>
+                                <option value="พังงา">พังงา</option>
+                                <option value="พัทลุง">พัทลุง</option>
+                                <option value="พิจิตร">พิจิตร</option>
+                                <option value="พิษณุโลก">พิษณุโลก</option>
+                                <option value="เพชรบุรี">เพชรบุรี</option>
+                                <option value="เพชรบูรณ์">เพชรบูรณ์</option>
+                                <option value="แพร่">แพร่</option>
+                                <option value="ภูเก็ต">ภูเก็ต</option>
+                                <option value="มหาสารคาม">มหาสารคาม</option>
+                                <option value="มุกดาหาร">มุกดาหาร</option>
+                                <option value="แม่ฮ่องสอน">แม่ฮ่องสอน</option>
+                                <option value="ยโสธร">ยโสธร</option>
+                                <option value="ยะลา">ยะลา</option>
+                                <option value="ร้อยเอ็ด">ร้อยเอ็ด</option>
+                                <option value="ระนอง">ระนอง</option>
+                                <option value="ระยอง">ระยอง</option>
+                                <option value="ราชบุรี">ราชบุรี</option>
+                                <option value="ลพบุรี">ลพบุรี</option>
+                                <option value="ลำปาง">ลำปาง</option>
+                                <option value="ลำพูน">ลำพูน</option>
+                                <option value="เลย">เลย</option>
+                                <option value="ศรีสะเกษ">ศรีสะเกษ</option>
+                                <option value="สกลนคร">สกลนคร</option>
+                                <option value="สงขลา">สงขลา</option>
+                                <option value="สตูล">สตูล</option>
+                                <option value="สมุทรปราการ">สมุทรปราการ</option>
+                                <option value="สมุทรสงคราม">สมุทรสงคราม</option>
+                                <option value="สมุทรสาคร">สมุทรสาคร</option>
+                                <option value="สระแก้ว">สระแก้ว</option>
+                                <option value="สระบุรี">สระบุรี</option>
+                                <option value="สิงห์บุรี">สิงห์บุรี</option>
+                                <option value="สุโขทัย">สุโขทัย</option>
+                                <option value="สุพรรณบุรี">สุพรรณบุรี</option>
+                                <option value="สุราษฎร์ธานี">สุราษฎร์ธานี</option>
+                                <option value="สุรินทร์">สุรินทร์</option>
+                                <option value="หนองคาย">หนองคาย</option>
+                                <option value="หนองบัวลำภู">หนองบัวลำภู</option>
+                                <option value="อ่างทอง">อ่างทอง</option>
+                                <option value="อุดรธานี">อุดรธานี</option>
+                                <option value="อุทัยธานี">อุทัยธานี</option>
+                                <option value="อุตรดิตถ์">อุตรดิตถ์</option>
+                                <option value="อุบลราชธานี">อุบลราชธานี</option>
+                                <option value="อำนาจเจริญ">อำนาจเจริญ</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="dynamic-teams-container"></div>
+                
+                <div style="text-align: left; margin: 20px 0;">
+                    <button type="button" class="btn-add-team" onclick="addTeamField()">➕ เพิ่มทีมเข้าร่วมแข่งขัน</button>
+                </div>
+
+                <div class="form-section payment-section">
+                    <h3>ส่วนที่ 3: ชำระค่าสมัคร</h3>
+                    <div class="fee-banner">
+                        ค่าธรรมเนียมการสมัครรวมทั้งหมด: <span id="total-fee-display">0</span> บาท
+                    </div>
+                    <div class="bank-details">
+                        <h4>ชำระค่าสมัคร</h4>
+                        <p><strong>ธนาคารกรุงไทย</strong></p>
+                        <p class="account-num">4471017357</p>
+                        <p>ชื่อบัญชี: โรงเรียนบึงกาฬ</p>
+                    </div>
+                    <div class="form-group" style="max-width: 400px; margin: 20px auto 0 auto;">
+                        <label>อัปโหลดสลิปโอนเงิน <span class="required">*</span></label>
+                        <input type="file" id="paymentSlip" accept="image/*" required>
+                    </div>
+                </div>
+
+                <div class="form-section">
+                    <h3>ส่วนที่ 4: ใบเสร็จรับเงิน</h3>
+                    <div class="form-group">
+                        <label>Tax Invoice / Receipt <span class="required">*</span></label>
+                        <select id="taxInvoice" onchange="toggleReceiptView()" required>
+                            <option value="ไม่รับ">ไม่รับใบเสร็จรับเงิน</option>
+                            <option value="รับ">รับใบเสร็จรับเงิน / ใบกำกับภาษี</option>
+                        </select>
+                    </div>
+                    <div id="receipt-details-box" style="display: none;">
+                        <div class="form-group">
+                            <label>ออกในนาม <span class="required">*</span></label>
+                            <input type="text" id="receivedFrom" placeholder="กรอกชื่อผู้จ่ายเงิน(ชื่อครูผู้ฝึกสอน/หน่วยงาน/สังกัด)">
+                        </div>
+                        <div class="form-group">
+                            <label>ที่อยู่สำหรับจัดส่ง <span class="required">*</span></label>
+                            <textarea id="address" rows="3" placeholder="กรอกที่อยู่"></textarea>
+                        </div>
+                    </div>
+                </div>
+
+                <div style="text-align: center; margin-top: 30px;">
+                    <button type="submit" class="btn-submit">ยืนยันการสมัคร</button>
+                </div>
+            </form>
+        </section>
+
+        <section id="check-page" class="page-section">
+            <h2 class="section-title">ตรวจสอบรายชื่อผู้สมัคร</h2>
+            <div class="search-box">
+                <input type="text" id="searchKeyword" placeholder="พิมพ์ชื่อ โรงเรียน, ชื่อผู้สมัคร หรือชื่อครูผู้ฝึกสอน">
+                <button type="button" class="btn-primary" onclick="searchRegistration()">ค้นหา</button>
+            </div>
+            <div class="table-container">
+                <table id="resultTable">
+                    <thead>
+                        <tr>
+                            <th>รหัสประจำตัวแข่งขัน</th>
+                            <th>School name</th>
+                            <th>Province</th>
+                            <th>Competition Category</th>
+                            <th>Player name</th>
+                            <th>Coach Name</th>
+                        </tr>
+                    </thead>
+                    <tbody id="searchResultBody">
+                        <tr>
+                            <td colspan="6" style="text-align: center; color: #a0aec0; padding: 30px;">กรุณากรอกคำค้นหาเพื่อเริ่มระบบค้นหา</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+    </main>
+
+    <footer>
+        <span id="footer-version">กำลังโหลดเวอร์ชันระบบ...</span>
+    </footer>
+
+    <div id="loading-overlay" class="overlay" style="display: none;">
+        <div class="popup-box">
+            <div class="spinner"></div>
+            <h3 id="loading-title">กำลังบันทึกข้อมูล...</h3>
+            <p id="loading-desc">กรุณารอสักครู่ อาจใช้เวลา 1-2 นาที</p>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
